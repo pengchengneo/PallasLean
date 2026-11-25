@@ -1,0 +1,302 @@
+{
+  "target": "tpu7x:2x2x1",
+  "versions": {
+    "jax": "0.9.0.1",
+    "jaxlib": "0.9.0.1",
+    "libtpu": "0.0.34"
+  },
+  "kernels": {
+    "sglang.kv_page_write": {
+      "ok": true,
+      "compile_seconds": 2.82,
+      "memory_analysis": "CompiledMemoryStats(generated_code_size_in_bytes=104960, argument_size_in_bytes=134742528, output_size_in_bytes=134217728, alias_size_in_bytes=0, temp_size_in_bytes=0, host_generated_code_size_in_bytes=0, host_argument_size_in_bytes=0, host_output_size_in_bytes=0, host_alias_size_in_bytes=0, host_temp_size_in_bytes=0)",
+      "llo_bundles": [
+        {
+          "kernel": "sglang.kv_page_write",
+          "llo_file": "1795475941506413979-TLP-00-final-top-level-llo.txt",
+          "num_bundles": 344,
+          "has_shalt": true,
+          "dma_bounds_checks": 2,
+          "mxu_ops": 0,
+          "eup_ops": 0,
+          "xlu_ops": 0,
+          "dma_starts": 2,
+          "dma_waits": 8,
+          "vload_ops": 0,
+          "vstore_ops": 2,
+          "branch_ops": 2,
+          "top_mnemonics": {
+            "vxor.u32": 34,
+            "vmul.u32": 22,
+            "vshrl.u32": 21,
+            "vtrace": 18,
+            "compiler": 18,
+            "sld": 10,
+            "vsel": 7,
+            "smov": 7,
+            "vsub.s32": 6,
+            "vor.u32": 4,
+            "vcmp.eq.s32.totalorder": 4,
+            "vsyncpa": 4
+          }
+        }
+      ]
+    },
+    "sglang.qk_norm_rope": {
+      "ok": false,
+      "error": "ValueError: Shape mismatch in input, indices and output"
+    },
+    "sglang.kimi_attn_res_decode": {
+      "ok": true,
+      "compile_seconds": 0.305,
+      "memory_analysis": "CompiledMemoryStats(generated_code_size_in_bytes=59904, argument_size_in_bytes=21504, output_size_in_bytes=4128, alias_size_in_bytes=0, temp_size_in_bytes=0, host_generated_code_size_in_bytes=0, host_argument_size_in_bytes=0, host_output_size_in_bytes=0, host_alias_size_in_bytes=0, host_temp_size_in_bytes=0)",
+      "llo_bundles": [
+        {
+          "kernel": "sglang.kimi_attn_res_decode",
+          "llo_file": "1795475943376295397-TLP-00-final-top-level-llo.txt",
+          "num_bundles": 407,
+          "has_shalt": true,
+          "dma_bounds_checks": 4,
+          "mxu_ops": 0,
+          "eup_ops": 0,
+          "xlu_ops": 0,
+          "dma_starts": 5,
+          "dma_waits": 18,
+          "vload_ops": 0,
+          "vstore_ops": 2,
+          "branch_ops": 2,
+          "top_mnemonics": {
+            "vxor.u32": 34,
+            "compiler": 32,
+            "vtrace": 24,
+            "vmul.u32": 22,
+            "vshrl.u32": 21,
+            "sld": 11,
+            "smov": 11,
+            "vsyncpa": 8,
+            "scmp.lt.s32.totalorder": 8,
+            "vsel": 7,
+            "vsub.s32": 6,
+            "sshll.u32": 5
+          }
+        }
+      ]
+    },
+    "sglang.flash_vision_single_step": {
+      "ok": true,
+      "compile_seconds": 0.232,
+      "memory_analysis": "CompiledMemoryStats(generated_code_size_in_bytes=100352, argument_size_in_bytes=1572864, output_size_in_bytes=524288, alias_size_in_bytes=0, temp_size_in_bytes=0, host_generated_code_size_in_bytes=0, host_argument_size_in_bytes=0, host_output_size_in_bytes=0, host_alias_size_in_bytes=0, host_temp_size_in_bytes=0)",
+      "llo_bundles": [
+        {
+          "kernel": "sglang.flash_vision_single_step",
+          "llo_file": "1795475943658275647-TLP-00-final-top-level-llo.txt",
+          "num_bundles": 266,
+          "has_shalt": false,
+          "dma_bounds_checks": 0,
+          "mxu_ops": 0,
+          "eup_ops": 0,
+          "xlu_ops": 0,
+          "dma_starts": 0,
+          "dma_waits": 0,
+          "vload_ops": 0,
+          "vstore_ops": 2,
+          "branch_ops": 2,
+          "top_mnemonics": {
+            "vxor.u32": 34,
+            "vmul.u32": 22,
+            "vshrl.u32": 21,
+            "sld": 9,
+            "vtrace": 8,
+            "compiler": 8,
+            "vsel": 7,
+            "vsub.s32": 6,
+            "vor.u32": 4,
+            "vcmp.eq.s32.totalorder": 4,
+            "vsettm": 3,
+            "scalar_parameter_address": 3
+          }
+        }
+      ]
+    },
+    "sglang.flash_causal_multi_block": {
+      "ok": true,
+      "compile_seconds": 0.192,
+      "memory_analysis": "CompiledMemoryStats(generated_code_size_in_bytes=79360, argument_size_in_bytes=786432, output_size_in_bytes=262144, alias_size_in_bytes=0, temp_size_in_bytes=0, host_generated_code_size_in_bytes=0, host_argument_size_in_bytes=0, host_output_size_in_bytes=0, host_alias_size_in_bytes=0, host_temp_size_in_bytes=0)",
+      "llo_bundles": [
+        {
+          "kernel": "sglang.flash_causal_multi_block",
+          "llo_file": "1795475943901717272-TLP-00-final-top-level-llo.txt",
+          "num_bundles": 266,
+          "has_shalt": false,
+          "dma_bounds_checks": 0,
+          "mxu_ops": 0,
+          "eup_ops": 0,
+          "xlu_ops": 0,
+          "dma_starts": 0,
+          "dma_waits": 0,
+          "vload_ops": 0,
+          "vstore_ops": 2,
+          "branch_ops": 2,
+          "top_mnemonics": {
+            "vxor.u32": 34,
+            "vmul.u32": 22,
+            "vshrl.u32": 21,
+            "sld": 9,
+            "vtrace": 8,
+            "compiler": 8,
+            "vsel": 7,
+            "vsub.s32": 6,
+            "vor.u32": 4,
+            "vcmp.eq.s32.totalorder": 4,
+            "vsettm": 3,
+            "scalar_parameter_address": 3
+          }
+        }
+      ]
+    },
+    "maxtext.ragged_mqa": {
+      "ok": true,
+      "compile_seconds": 0.22,
+      "memory_analysis": "CompiledMemoryStats(generated_code_size_in_bytes=73728, argument_size_in_bytes=16810496, output_size_in_bytes=40992, alias_size_in_bytes=0, temp_size_in_bytes=0, host_generated_code_size_in_bytes=0, host_argument_size_in_bytes=0, host_output_size_in_bytes=0, host_alias_size_in_bytes=0, host_temp_size_in_bytes=0)",
+      "llo_bundles": [
+        {
+          "kernel": "maxtext.ragged_mqa",
+          "llo_file": "1795475944118531939-TLP-00-final-top-level-llo.txt",
+          "num_bundles": 316,
+          "has_shalt": false,
+          "dma_bounds_checks": 0,
+          "mxu_ops": 0,
+          "eup_ops": 0,
+          "xlu_ops": 0,
+          "dma_starts": 1,
+          "dma_waits": 2,
+          "vload_ops": 0,
+          "vstore_ops": 2,
+          "branch_ops": 2,
+          "top_mnemonics": {
+            "vxor.u32": 34,
+            "compiler": 24,
+            "vmul.u32": 22,
+            "vshrl.u32": 21,
+            "sld": 14,
+            "vtrace": 10,
+            "vsel": 7,
+            "smov": 7,
+            "vsub.s32": 6,
+            "vor.u32": 4,
+            "vcmp.eq.s32.totalorder": 4,
+            "int_to_ptr.hbm": 4
+          }
+        }
+      ]
+    },
+    "maxtext.megablox_gmm": {
+      "ok": true,
+      "compile_seconds": 1.091,
+      "memory_analysis": "CompiledMemoryStats(generated_code_size_in_bytes=217600, argument_size_in_bytes=918016, output_size_in_bytes=262144, alias_size_in_bytes=0, temp_size_in_bytes=391392, host_generated_code_size_in_bytes=0, host_argument_size_in_bytes=0, host_output_size_in_bytes=0, host_alias_size_in_bytes=0, host_temp_size_in_bytes=0)",
+      "llo_bundles": [
+        {
+          "kernel": "maxtext.megablox_gmm",
+          "llo_file": "1795475944651037397-TLP-00-final-top-level-llo.txt",
+          "num_bundles": 1114,
+          "has_shalt": true,
+          "dma_bounds_checks": 13,
+          "mxu_ops": 0,
+          "eup_ops": 0,
+          "xlu_ops": 0,
+          "dma_starts": 8,
+          "dma_waits": 32,
+          "vload_ops": 5,
+          "vstore_ops": 2,
+          "branch_ops": 3,
+          "top_mnemonics": {
+            "compiler": 246,
+            "smov": 158,
+            "vtrace": 122,
+            "vxor.u32": 34,
+            "sld": 22,
+            "vmul.u32": 22,
+            "vshrl.u32": 21,
+            "scmp.lt.s32.totalorder": 20,
+            "scmp.ne.s32.totalorder": 17,
+            "vsyncpa": 16,
+            "scalar_lea.vmem": 13,
+            "pnand": 13
+          }
+        }
+      ]
+    },
+    "sglang_jax.megablox_gmm": {
+      "ok": true,
+      "compile_seconds": 0.672,
+      "memory_analysis": "CompiledMemoryStats(generated_code_size_in_bytes=219648, argument_size_in_bytes=922112, output_size_in_bytes=262144, alias_size_in_bytes=0, temp_size_in_bytes=424128, host_generated_code_size_in_bytes=0, host_argument_size_in_bytes=0, host_output_size_in_bytes=0, host_alias_size_in_bytes=0, host_temp_size_in_bytes=0)",
+      "llo_bundles": [
+        {
+          "kernel": "sglang_jax.megablox_gmm",
+          "llo_file": "1795475945500120231-TLP-00-final-top-level-llo.txt",
+          "num_bundles": 1142,
+          "has_shalt": true,
+          "dma_bounds_checks": 14,
+          "mxu_ops": 0,
+          "eup_ops": 0,
+          "xlu_ops": 0,
+          "dma_starts": 9,
+          "dma_waits": 36,
+          "vload_ops": 5,
+          "vstore_ops": 2,
+          "branch_ops": 3,
+          "top_mnemonics": {
+            "compiler": 252,
+            "smov": 160,
+            "vtrace": 126,
+            "vxor.u32": 34,
+            "sld": 22,
+            "vmul.u32": 22,
+            "scmp.lt.s32.totalorder": 22,
+            "vshrl.u32": 21,
+            "scmp.ne.s32.totalorder": 18,
+            "vsyncpa": 18,
+            "scalar_lea.vmem": 14,
+            "pnand": 14
+          }
+        }
+      ]
+    },
+    "sglang_jax.update_kv_cache": {
+      "ok": true,
+      "compile_seconds": 0.427,
+      "memory_analysis": "CompiledMemoryStats(generated_code_size_in_bytes=120320, argument_size_in_bytes=2165248, output_size_in_bytes=2097152, alias_size_in_bytes=0, temp_size_in_bytes=0, host_generated_code_size_in_bytes=0, host_argument_size_in_bytes=0, host_output_size_in_bytes=0, host_alias_size_in_bytes=0, host_temp_size_in_bytes=0)",
+      "llo_bundles": [
+        {
+          "kernel": "sglang_jax.update_kv_cache",
+          "llo_file": "1795475946102903231-TLP-00-final-top-level-llo.txt",
+          "num_bundles": 417,
+          "has_shalt": true,
+          "dma_bounds_checks": 1,
+          "mxu_ops": 0,
+          "eup_ops": 0,
+          "xlu_ops": 0,
+          "dma_starts": 1,
+          "dma_waits": 4,
+          "vload_ops": 1,
+          "vstore_ops": 2,
+          "branch_ops": 2,
+          "top_mnemonics": {
+            "compiler": 60,
+            "vxor.u32": 34,
+            "vmul.u32": 22,
+            "vshrl.u32": 21,
+            "sld": 10,
+            "sand.u32": 10,
+            "vtrace": 10,
+            "smov": 9,
+            "scmp.ne.s32.totalorder": 8,
+            "vsel": 7,
+            "vsub.s32": 6,
+            "vor.u32": 4
+          }
+        }
+      ]
+    }
+  }
+}

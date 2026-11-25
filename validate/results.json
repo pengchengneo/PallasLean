@@ -1,0 +1,92 @@
+{
+  "env": {
+    "jax": "0.9.0",
+    "devices": [
+      "TPU_0(process=0,(0,0,0,0))",
+      "TPU_1(process=0,(0,0,0,1))"
+    ],
+    "device_kind": "TPU7x"
+  },
+  "exp_calibration": {
+    "ok": true,
+    "ue_max_rel": 3.878961985053247e-06,
+    "ue_in_ulps_2^-24": 65.0781830790271,
+    "etae_max_abs_below_normal": 1.1754548330268498e-38,
+    "ftz": true,
+    "exp0_exact": true
+  },
+  "div_calibration": {
+    "ok": true,
+    "recip_max_rel": 1.1935858871560265e-07,
+    "div_max_rel": 7.947279330923936e-08,
+    "u_f32": 5.960464477539063e-08
+  },
+  "sglang_flash_bound": {
+    "ok": true,
+    "uniform": {
+      "max_abs_err": 0.0006362556424567012
+    },
+    "peaked": {
+      "max_abs_err": 0.003941573271756149
+    },
+    "eps_bound": 0.008468251550567895,
+    "within_bound": true
+  },
+  "maxtext_ragged_bound": {
+    "ok": true,
+    "max_abs_err": 0.0004413331569370904,
+    "eps_bound": 0.0006111707445914636,
+    "within_bound": true
+  },
+  "sglang_qk_norm_rope_bound": {
+    "ok": false,
+    "error": "ValueError: Shape mismatch in input, indices and output",
+    "trace": "  return internal_gather(arr, dynamic_idx)\n  File \"/opt/venv/lib/python3.12/site-packages/jax/_src/numpy/indexing.py\", line 1255, in _gather\n    y = slicing.gather(\njax._src.source_info_util.JaxStackTraceBeforeTransformation: ValueError: Shape mismatch in input, indices and output\n\nThe preceding stack trace is the source of the JAX operation that, once transformed by JAX, triggered the following exception.\n\n--------------------\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/tmp/tpu_logs/tl/tpu_validate.py\", line 47, in run\n    tests[name] = {\"ok\": True, **fn()}\n                                 ^^^^\n  File \"/tmp/tpu_logs/tl/tpu_validate.py\", line 248, in qk_norm_rope_bound\n    qo, ko = qkr._qk_norm_rope_jax(\n             ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/tpu_logs/tl/src/sglang_tpu/qk_norm_rope.py\", line 100, in _qk_norm_rope_jax\n    return pl.pallas_call(\n           ^^^^^^^^^^^^^^^\n  File \"/opt/venv/lib/python3.12/site-packages/jax/_src/pallas/pallas_call.py\", line 1158, in _pallas_call_lowering\n    return mlir.lower_per_platform(ctx, \"pallas_call\",\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/venv/lib/python3.12/site-packages/jax/_src/pallas/pallas_call.py\", line 1131, in tpu_lowering\n    return mosaic_tpu_backend.pallas_call_tpu_lowering_rule(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/venv/lib/python3.12/site-packages/jax/_src/pallas/mosaic/pallas_call_registration.py\", line 159, in pallas_call_tpu_lowering_rule\n    mosaic_module = lower_jaxpr_to_module(\n                    ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/venv/lib/python3.12/site-packages/jax/_src/pallas/mosaic/lowering.py\", line 778, in lower_jaxpr_to_module\n    func_op = lower_jaxpr_to_func(\n              ^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/venv/lib/python3.12/site-packages/jax/_src/pallas/mosaic/lowering.py\", line 1074, in lower_jaxpr_to_func\n    body: Any = func.FuncOp.from_py_func(*arg_types, name=name)(body_func)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/venv/lib/python3.12/site-packages/jaxlib/mlir/dialects/func.py\", line 197, in decorator\n    return_values = f(*func_args, **func_kwargs)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/venv/lib/python3.12/site-packages/jax/_src/pallas/mosaic/lowering.py\", line 1070, in body_func\n    return jaxpr_subcomp(\n           ^^^^^^^^^^^^^^\n  File \"/opt/venv/lib/python3.12/site-packages/jax/_src/pallas/mosaic/lowering.py\", line 1213, in jaxpr_subcomp\n    raise\n  File \"/opt/venv/lib/python3.12/site-packages/jax/_src/pallas/mosaic/lowering.py\", line 2484, in _gather_lowering_rule\n    raise ValueError(\"Shape mismatch in input, indices and output\")\nValueError: Shape mismatch in input, indices and output\n--------------------\nFor simplicity, JAX has removed its internal frames from the traceback of the following exception. Set JAX_TRACEBACK_FILTERING=off to include these.\n"
+  },
+  "bug1_maxtext_ragged_negative_block": {
+    "ok": true,
+    "b8_last100": {
+      "ran": true,
+      "max_abs_err_valid_rows": 0.0006911950413826667,
+      "len0_row_output_absmax": null
+    },
+    "b1_len100": {
+      "ran": false,
+      "error": "JaxRuntimeError: INTERNAL: Core halted unexpectedly: Assertion args: 0x00000000 0x00000000 0x00000000 INTERNAL: Accelerator device halted prematurely, perhaps due to an on-device check-failure. Node 0 halted unexpectedly at tag:pc TensorCoreSequencer:1:0xca (from TensorCoreSequencer:1:0x25a): BoundsCheck 0 [deref of %s316] for %1038 = dma.hbm_to_vmem [thread:$0]  (!%p1036), /*hbm=*/%s316, /*size_in_granules=*/2048, /*vmem=*/%s319, /*dst_syncflagno=*/%s292 /* \nbase_bounds: (1, 256, 1)\ndynamic_base_bounds: (1, 256, 1)\nwindow_bounds: (1, 16, 1)\niteration_bounds: (1, 16)\nstrides: (1, 16, 1)\npad_low: (0, 0, 0)\npad_high: (0, 0, 0)\nelement_size_in_bytes: 4096\nsecond_minor_factor: 1 */\nhlo: tpu_custom_call.1\n HLO: tpu_custom_call.1; HLO computation: main.1\n=== Source Location Trace: ===\nlearning/4"
+    },
+    "b8_last0": {
+      "ran": false,
+      "error": "JaxRuntimeError: FAILED_PRECONDITION: The program continuator has halted unexpectedly."
+    }
+  },
+  "bug2_maxtext_gmm_uninit_vmem_leak": {
+    "ok": false,
+    "error": "JaxRuntimeError: FAILED_PRECONDITION: The program continuator has halted unexpectedly.",
+    "trace": "Traceback (most recent call last):\n  File \"/tmp/tpu_logs/tl/tpu_validate.py\", line 47, in run\n    tests[name] = {\"ok\": True, **fn()}\n                                 ^^^^\n  File \"/tmp/tpu_logs/tl/tpu_validate.py\", line 274, in maxtext_gmm_uninit_vmem_leak\n    out_no_ex = np.asarray(mb.gmm(lhs, rhs, gs, tiling=(128, 128, 128)), np.float32)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/venv/lib/python3.12/site-packages/jax/_src/array.py\", line 439, in __array__\n    return np.asarray(self._value, dtype=dtype, **kwds)\n                      ^^^^^^^^^^^\n  File \"/opt/venv/lib/python3.12/site-packages/jax/_src/profiler.py\", line 359, in wrapper\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/venv/lib/python3.12/site-packages/jax/_src/array.py\", line 639, in _value\n    npy_value, did_copy = self._single_device_array_to_np_array_did_copy()\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\njax.errors.JaxRuntimeError: FAILED_PRECONDITION: The program continuator has halted unexpectedly.\n"
+  },
+  "bug3_sglang_flash_ab_oob": {
+    "ok": true,
+    "ran": false,
+    "error": "JaxRuntimeError: FAILED_PRECONDITION: The program continuator has halted unexpectedly."
+  },
+  "bug4_sglang_flash_odd_block_q": {
+    "ok": true,
+    "ran": false,
+    "error": "JaxRuntimeError: FAILED_PRECONDITION: The program continuator has halted unexpectedly."
+  },
+  "bug5_sglang_jax_gmm_quant_midrun_reset": {
+    "ok": false,
+    "error": "JaxRuntimeError: FAILED_PRECONDITION: The program continuator has halted unexpectedly.",
+    "trace": "Traceback (most recent call last):\n  File \"/tmp/tpu_logs/tl/tpu_validate.py\", line 47, in run\n    tests[name] = {\"ok\": True, **fn()}\n                                 ^^^^\n  File \"/tmp/tpu_logs/tl/tpu_validate.py\", line 300, in sglang_jax_gmm_quant_midrun_reset\n    out = np.asarray(\n          ^^^^^^^^^^^\n  File \"/opt/venv/lib/python3.12/site-packages/jax/_src/array.py\", line 439, in __array__\n    return np.asarray(self._value, dtype=dtype, **kwds)\n                      ^^^^^^^^^^^\n  File \"/opt/venv/lib/python3.12/site-packages/jax/_src/profiler.py\", line 359, in wrapper\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/venv/lib/python3.12/site-packages/jax/_src/array.py\", line 639, in _value\n    npy_value, did_copy = self._single_device_array_to_np_array_did_copy()\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\njax.errors.JaxRuntimeError: FAILED_PRECONDITION: The program continuator has halted unexpectedly.\n"
+  },
+  "bug6_sglang_jax_gmm_alias_crash": {
+    "ok": true,
+    "crashed": true,
+    "error": "ValueError: input_output_aliases contains the mapping '7:0' with input index 7 outside the range [0, 7)"
+  },
+  "kv_page_write_duplicates": {
+    "ok": false,
+    "error": "JaxRuntimeError: FAILED_PRECONDITION: The program continuator has halted unexpectedly.",
+    "trace": "Traceback (most recent call last):\n  File \"/tmp/tpu_logs/tl/tpu_validate.py\", line 47, in run\n    tests[name] = {\"ok\": True, **fn()}\n                                 ^^^^\n  File \"/tmp/tpu_logs/tl/tpu_validate.py\", line 236, in kv_dup\n    out = np.asarray(kvw.write_pages(ids, pages, kv).astype(jnp.float32))\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/venv/lib/python3.12/site-packages/jax/_src/array.py\", line 439, in __array__\n    return np.asarray(self._value, dtype=dtype, **kwds)\n                      ^^^^^^^^^^^\n  File \"/opt/venv/lib/python3.12/site-packages/jax/_src/profiler.py\", line 359, in wrapper\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/venv/lib/python3.12/site-packages/jax/_src/array.py\", line 639, in _value\n    npy_value, did_copy = self._single_device_array_to_np_array_did_copy()\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\njax.errors.JaxRuntimeError: FAILED_PRECONDITION: The program continuator has halted unexpectedly.\n"
+  }
+}

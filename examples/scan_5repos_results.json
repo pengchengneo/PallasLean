@@ -1,0 +1,415 @@
+[
+  {
+    "repo": "sglang-torchtpu",
+    "kernel": "sglang.kv_row_write",
+    "ok": true,
+    "subkernels": [
+      {
+        "name": "sglang.kv_row_write",
+        "grid": [
+          1
+        ],
+        "counts": {
+          "PROVED": 8,
+          "N/A": 3,
+          "FAILED": 1,
+          "WARN": 1
+        },
+        "vmem": "VMEM 4096.0 KiB / 64 MiB, SMEM 260 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+        "failed": [
+          {
+            "name": "init-at-start[scratch0]",
+            "detail": "scratch read without init at output-run start",
+            "cex": {
+              "grid": [
+                0
+              ],
+              "pred": [
+                0
+              ]
+            }
+          }
+        ],
+        "warns": [
+          {
+            "name": "termination",
+            "detail": "contains data-dependent while loop (2)"
+          }
+        ]
+      }
+    ],
+    "seconds": 0.14
+  },
+  {
+    "repo": "sglang-jax",
+    "kernel": "sglang_jax.dsv4_state_init",
+    "ok": true,
+    "subkernels": [
+      {
+        "name": "sglang_jax.dsv4_state_init",
+        "grid": [
+          1
+        ],
+        "counts": {
+          "PROVED": 6,
+          "N/A": 3,
+          "FAILED": 1
+        },
+        "vmem": "",
+        "failed": [
+          {
+            "name": "v7x-mosaic-lower",
+            "detail": "no pallas_call reached the TPU v7x Mosaic lowering",
+            "cex": null
+          }
+        ],
+        "warns": []
+      }
+    ],
+    "seconds": 1.49
+  },
+  {
+    "repo": "sglang-jax",
+    "kernel": "sglang_jax.dsv4_paged_row_write",
+    "ok": false,
+    "error": "ValueError: too many values to unpack (expected 2)"
+  },
+  {
+    "repo": "sglang-jax",
+    "kernel": "sglang_jax.quantized_matmul",
+    "ok": true,
+    "subkernels": [
+      {
+        "name": "sglang_jax.quantized_matmul",
+        "grid": [
+          2,
+          2,
+          2
+        ],
+        "counts": {
+          "PROVED": 14,
+          "WARN": 1
+        },
+        "vmem": "VMEM 225.5 KiB / 64 MiB, SMEM 0 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+        "failed": [],
+        "warns": [
+          {
+            "name": "unused-input[in3]",
+            "detail": "block is DMA'd HBM->VMEM every step but never read; pass it with memory_space=pl.ANY"
+          }
+        ]
+      }
+    ],
+    "seconds": 0.03
+  },
+  {
+    "repo": "maxtext",
+    "kernel": "maxtext.ragged_gather_tc",
+    "ok": false,
+    "error": "ValueError: not enough values to unpack (expected 3, got 2)"
+  },
+  {
+    "repo": "tpu-inference",
+    "kernel": "tpu_inference.megablox_gmm[no_existing_out]",
+    "ok": true,
+    "subkernels": [
+      {
+        "name": "tpu_inference.megablox_gmm[no_existing_out]",
+        "grid": [
+          2,
+          "dynamic",
+          2
+        ],
+        "counts": {
+          "PROVED": 15,
+          "FAILED": 1
+        },
+        "vmem": "VMEM 320.0 KiB / 64 MiB, SMEM 64 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+        "failed": [
+          {
+            "name": "init-at-start[out]",
+            "detail": "accumulator read without init at run start",
+            "cex": {
+              "grid": [
+                0,
+                0,
+                0
+              ],
+              "pred": [
+                0,
+                0,
+                0
+              ],
+              "prefetch1": {
+                "0": 1
+              },
+              "prefetch2": {
+                "0": 0
+              },
+              "prefetch3": {
+                "0": 0
+              }
+            }
+          }
+        ],
+        "warns": []
+      }
+    ],
+    "seconds": 0.06
+  },
+  {
+    "repo": "tpu-inference",
+    "kernel": "tpu_inference.megablox_gmm[with_existing_out_alias_bug]",
+    "ok": false,
+    "error": "ValueError: input_output_aliases contains the mapping '7:0' with input index 7 outside the range [0, 7)"
+  },
+  {
+    "repo": "tpu-inference",
+    "kernel": "tpu_inference.quantized_matmul",
+    "ok": true,
+    "subkernels": [
+      {
+        "name": "tpu_inference.quantized_matmul",
+        "grid": [
+          2,
+          2,
+          2
+        ],
+        "counts": {
+          "PROVED": 14,
+          "WARN": 1
+        },
+        "vmem": "VMEM 225.5 KiB / 64 MiB, SMEM 0 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+        "failed": [],
+        "warns": [
+          {
+            "name": "unused-input[in3]",
+            "detail": "block is DMA'd HBM->VMEM every step but never read; pass it with memory_space=pl.ANY"
+          }
+        ]
+      }
+    ],
+    "seconds": 0.02
+  },
+  {
+    "repo": "tpu-inference",
+    "kernel": "tpu_inference.blockwise_quantized_matmul",
+    "ok": true,
+    "subkernels": [
+      {
+        "name": "tpu_inference.blockwise_quantized_matmul",
+        "grid": [
+          2,
+          2,
+          2
+        ],
+        "counts": {
+          "PROVED": 13
+        },
+        "vmem": "VMEM 193.0 KiB / 64 MiB, SMEM 0 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+        "failed": [],
+        "warns": []
+      }
+    ],
+    "seconds": 0.03
+  },
+  {
+    "repo": "tpu-inference",
+    "kernel": "tpu_inference.gdn.newton_schulz_inverse",
+    "ok": true,
+    "subkernels": [
+      {
+        "name": "tpu_inference.gdn.newton_schulz_inverse",
+        "grid": [
+          1
+        ],
+        "counts": {
+          "PROVED": 6,
+          "N/A": 2
+        },
+        "vmem": "VMEM 4096.0 KiB / 64 MiB, SMEM 0 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+        "failed": [],
+        "warns": []
+      }
+    ],
+    "seconds": 0.01
+  },
+  {
+    "repo": "tpu-inference",
+    "kernel": "tpu_inference.gdn.decompose_tri_inv",
+    "ok": true,
+    "subkernels": [
+      {
+        "name": "tpu_inference.gdn.decompose_tri_inv",
+        "grid": [
+          1
+        ],
+        "counts": {
+          "PROVED": 6,
+          "N/A": 2
+        },
+        "vmem": "VMEM 4096.0 KiB / 64 MiB, SMEM 0 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+        "failed": [],
+        "warns": []
+      }
+    ],
+    "seconds": 0.06
+  },
+  {
+    "repo": "tpu-inference",
+    "kernel": "tpu_inference.mla_v2.xpose_full",
+    "ok": true,
+    "subkernels": [
+      {
+        "name": "tpu_inference.mla_v2.xpose_full",
+        "grid": [],
+        "counts": {
+          "PROVED": 6,
+          "N/A": 2
+        },
+        "vmem": "VMEM 512.0 KiB / 64 MiB, SMEM 0 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+        "failed": [],
+        "warns": []
+      }
+    ],
+    "seconds": 0.01
+  },
+  {
+    "repo": "vllm-torchtpu",
+    "kernel": "vllm_torchtpu.quantized_matmul",
+    "ok": true,
+    "subkernels": [
+      {
+        "name": "vllm_torchtpu.quantized_matmul",
+        "grid": [
+          2,
+          2,
+          2
+        ],
+        "counts": {
+          "PROVED": 14,
+          "WARN": 1
+        },
+        "vmem": "VMEM 225.5 KiB / 64 MiB, SMEM 0 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+        "failed": [],
+        "warns": [
+          {
+            "name": "unused-input[in3]",
+            "detail": "block is DMA'd HBM->VMEM every step but never read; pass it with memory_space=pl.ANY"
+          }
+        ]
+      }
+    ],
+    "seconds": 0.02
+  },
+  {
+    "repo": "vllm-torchtpu",
+    "kernel": "vllm_torchtpu.mla_v2.xpose_full",
+    "ok": true,
+    "subkernels": [
+      {
+        "name": "vllm_torchtpu.mla_v2.xpose_full",
+        "grid": [],
+        "counts": {
+          "PROVED": 6,
+          "N/A": 2
+        },
+        "vmem": "VMEM 512.0 KiB / 64 MiB, SMEM 0 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+        "failed": [],
+        "warns": []
+      }
+    ],
+    "seconds": 0.0
+  },
+  {
+    "repo": "vllm-torchtpu",
+    "kernel": "vllm_torchtpu.megablox_gmm_v2[zero_init=True]",
+    "ok": true,
+    "subkernels": [
+      {
+        "name": "vllm_torchtpu.megablox_gmm_v2[zero_init=True]",
+        "grid": [],
+        "counts": {
+          "PROVED": 11,
+          "N/A": 3,
+          "FAILED": 2,
+          "WARN": 1
+        },
+        "vmem": "VMEM 132.0 KiB / 64 MiB, SMEM 64 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+        "failed": [
+          {
+            "name": "init-at-start[scratch2]",
+            "detail": "scratch read without init at output-run start",
+            "cex": {
+              "grid": [],
+              "pred": []
+            }
+          },
+          {
+            "name": "init-at-start[scratch3]",
+            "detail": "scratch read without init at output-run start",
+            "cex": {
+              "grid": [],
+              "pred": []
+            }
+          }
+        ],
+        "warns": [
+          {
+            "name": "termination",
+            "detail": "contains data-dependent while loop (5)"
+          }
+        ]
+      }
+    ],
+    "seconds": 0.12
+  },
+  {
+    "repo": "vllm-torchtpu",
+    "kernel": "vllm_torchtpu.megablox_gmm_v2[zero_init=False]",
+    "ok": true,
+    "subkernels": [
+      {
+        "name": "vllm_torchtpu.megablox_gmm_v2[zero_init=False]",
+        "grid": [],
+        "counts": {
+          "PROVED": 9,
+          "N/A": 2,
+          "FAILED": 3,
+          "WARN": 1
+        },
+        "vmem": "VMEM 132.0 KiB / 64 MiB, SMEM 64 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+        "failed": [
+          {
+            "name": "write-at-end[out]",
+            "detail": "explicit HBM ref (memory_space=hbm) is never written",
+            "cex": null
+          },
+          {
+            "name": "init-at-start[scratch2]",
+            "detail": "scratch read without init at output-run start",
+            "cex": {
+              "grid": [],
+              "pred": []
+            }
+          },
+          {
+            "name": "init-at-start[scratch3]",
+            "detail": "scratch read without init at output-run start",
+            "cex": {
+              "grid": [],
+              "pred": []
+            }
+          }
+        ],
+        "warns": [
+          {
+            "name": "termination",
+            "detail": "contains data-dependent while loop (3)"
+          }
+        ]
+      }
+    ],
+    "seconds": 0.04
+  }
+]

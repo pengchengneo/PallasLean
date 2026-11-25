@@ -1,0 +1,48 @@
+{
+  "bug2_maxtext_gmm_uninit_vmem_leak": {
+    "tile0_mean": 256.0,
+    "tile1_active_mean": 512.0,
+    "tile1_unmasked_tail_mean": 0.0,
+    "tile1_unmasked_tail_max": 0.0,
+    "with_existing_out_tail_max": 0.0,
+    "bug_reproduced": false
+  },
+  "bug4_sglang_flash_odd_block_q": {
+    "row128_err_vs_spec": 0.007356198099284984,
+    "row128_err_vs_dropped_col128": 0.0004853739921041045,
+    "rows0_127_max_err": 0.0026227290362597078,
+    "bug_reproduced": false
+  },
+  "bug5_sglang_jax_gmm_quant_midrun_reset": {
+    "expected": 266.0,
+    "got_mean": 133.0,
+    "got_min": 10.0,
+    "got_max": 256.0,
+    "b0_wiped_bug_reproduced": false
+  },
+  "bug6_sglang_jax_gmm_alias_crash": {
+    "crashed": true,
+    "error": "ValueError: input_output_aliases contains the mapping '7:0' with input index 7 outside the range [0, 7)"
+  },
+  "kv_page_write_duplicates": {
+    "block_means": {
+      "5": 3.0,
+      "7": 5.0,
+      "9": 4.0,
+      "0": 0.0
+    },
+    "matches_last_write_wins": true
+  },
+  "bug3_sglang_flash_ab_oob": {
+    "ran": false,
+    "error": "JaxRuntimeError: FAILED_PRECONDITION: The program continuator has halted unexpectedly."
+  },
+  "bug1_maxtext_ragged_negative_block": {
+    "ran": true,
+    "shape": [
+      1,
+      8,
+      128
+    ]
+  }
+}

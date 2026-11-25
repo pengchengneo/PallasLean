@@ -1,0 +1,2149 @@
+{
+  "meta": {
+    "sglang-jax": "b3e3e16",
+    "sglang-torchtpu": "1f79f6bfbb",
+    "maxtext": "55ed4cffb",
+    "target": "TPU v7x (TPU7x)"
+  },
+  "seconds": 83.2,
+  "lean_certificates": {
+    "status": "PROVED",
+    "file": "PallasLean/Certificates.lean",
+    "seconds": 59.3
+  },
+  "results": [
+    {
+      "kernel": "sglang.kv_page_write",
+      "name": "in-bounds[pages]",
+      "status": "PROVED",
+      "detail": "blocks [16, 1, 1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kv_page_write",
+      "name": "in-bounds[kv]",
+      "status": "PROVED",
+      "detail": "blocks [4096, 1, 1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kv_page_write",
+      "name": "in-bounds[kv_out]",
+      "status": "PROVED",
+      "detail": "blocks [4096, 1, 1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kv_page_write",
+      "name": "prefetch-bounds[0]",
+      "status": "PROVED",
+      "detail": "2 reads",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kv_page_write",
+      "name": "parallel-race[kv_out]",
+      "status": "N/A",
+      "detail": "no parallel dims",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kv_page_write",
+      "name": "contiguity[kv_out]",
+      "status": "N/A",
+      "detail": "unconditional full overwrite: scatter semantics (Lean Pipeline.overwrite_is_scatter)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kv_page_write",
+      "name": "coverage[kv_out]",
+      "status": "N/A",
+      "detail": "aliased to an input: unvisited blocks keep their value",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kv_page_write",
+      "name": "termination",
+      "status": "PROVED",
+      "detail": "bounded grid [16]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kv_page_write",
+      "name": "v7x-mosaic-lower",
+      "status": "PROVED",
+      "detail": "TPU7x TC module @_kernel (vector.load=2)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kv_page_write",
+      "name": "v7x-vmem-budget",
+      "status": "PROVED",
+      "detail": "VMEM 192.0 KiB / 64 MiB, SMEM 64 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kv_page_write",
+      "name": "unused-input[kv]",
+      "status": "WARN",
+      "detail": "block is DMA'd HBM->VMEM every step but never read; pass it with memory_space=pl.ANY",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.qk_norm_rope",
+      "name": "in-bounds[qkv]",
+      "status": "PROVED",
+      "detail": "blocks [2, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.qk_norm_rope",
+      "name": "in-bounds[cos_sin]",
+      "status": "PROVED",
+      "detail": "blocks [2, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.qk_norm_rope",
+      "name": "in-bounds[q_w]",
+      "status": "PROVED",
+      "detail": "blocks [1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.qk_norm_rope",
+      "name": "in-bounds[k_w]",
+      "status": "PROVED",
+      "detail": "blocks [1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.qk_norm_rope",
+      "name": "in-bounds[q_out]",
+      "status": "PROVED",
+      "detail": "blocks [2, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.qk_norm_rope",
+      "name": "in-bounds[k_out]",
+      "status": "PROVED",
+      "detail": "blocks [2, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.qk_norm_rope",
+      "name": "parallel-race[q_out]",
+      "status": "N/A",
+      "detail": "no parallel dims",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.qk_norm_rope",
+      "name": "parallel-race[k_out]",
+      "status": "N/A",
+      "detail": "no parallel dims",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.qk_norm_rope",
+      "name": "contiguity[q_out]",
+      "status": "N/A",
+      "detail": "unconditional full overwrite: scatter semantics (Lean Pipeline.overwrite_is_scatter)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.qk_norm_rope",
+      "name": "coverage[q_out]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.qk_norm_rope",
+      "name": "contiguity[k_out]",
+      "status": "N/A",
+      "detail": "unconditional full overwrite: scatter semantics (Lean Pipeline.overwrite_is_scatter)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.qk_norm_rope",
+      "name": "coverage[k_out]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.qk_norm_rope",
+      "name": "termination",
+      "status": "PROVED",
+      "detail": "bounded grid [2]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.qk_norm_rope",
+      "name": "v7x-mosaic-lower",
+      "status": "PROVED",
+      "detail": "TPU7x TC module @fused_qk_norm_rope (math.rsqrt=2, arith.extf=5, arith.truncf=2, vector.load=6)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.qk_norm_rope",
+      "name": "v7x-vmem-budget",
+      "status": "PROVED",
+      "detail": "VMEM 1664.5 KiB / 64 MiB, SMEM 0 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.qk_norm_rope",
+      "name": "C:rmsnorm-rope-exact",
+      "status": "PROVED",
+      "detail": "q_out and k_out match RMSNorm + NeoX RoPE spec; V cols >= 768 untouched (Lean RoPERMSNorm)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kimi_attn_res_decode",
+      "name": "in-bounds[prefix_a]",
+      "status": "PROVED",
+      "detail": "blocks [1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kimi_attn_res_decode",
+      "name": "in-bounds[prefix_b]",
+      "status": "PROVED",
+      "detail": "blocks [1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kimi_attn_res_decode",
+      "name": "in-bounds[bank]",
+      "status": "PROVED",
+      "detail": "blocks [1, 1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kimi_attn_res_decode",
+      "name": "in-bounds[cw]",
+      "status": "PROVED",
+      "detail": "blocks [1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kimi_attn_res_decode",
+      "name": "in-bounds[w]",
+      "status": "PROVED",
+      "detail": "blocks [1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kimi_attn_res_decode",
+      "name": "in-bounds[normed_out]",
+      "status": "PROVED",
+      "detail": "blocks [1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kimi_attn_res_decode",
+      "name": "in-bounds[prefix_out]",
+      "status": "PROVED",
+      "detail": "blocks [1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kimi_attn_res_decode",
+      "name": "parallel-race[normed_out]",
+      "status": "N/A",
+      "detail": "no parallel dims",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kimi_attn_res_decode",
+      "name": "parallel-race[prefix_out]",
+      "status": "N/A",
+      "detail": "no parallel dims",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kimi_attn_res_decode",
+      "name": "contiguity[normed_out]",
+      "status": "N/A",
+      "detail": "unconditional full overwrite: scatter semantics (Lean Pipeline.overwrite_is_scatter)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kimi_attn_res_decode",
+      "name": "coverage[normed_out]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kimi_attn_res_decode",
+      "name": "contiguity[prefix_out]",
+      "status": "N/A",
+      "detail": "unconditional full overwrite: scatter semantics (Lean Pipeline.overwrite_is_scatter)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kimi_attn_res_decode",
+      "name": "coverage[prefix_out]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kimi_attn_res_decode",
+      "name": "termination",
+      "status": "PROVED",
+      "detail": "bounded grid [1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kimi_attn_res_decode",
+      "name": "v7x-mosaic-lower",
+      "status": "PROVED",
+      "detail": "TPU7x TC module @kimi_attn_res_decode_nvb4 (math.exp=5, math.rsqrt=6, arith.extf=8, arith.truncf=3, vector.load=10)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kimi_attn_res_decode",
+      "name": "v7x-vmem-budget",
+      "status": "PROVED",
+      "detail": "VMEM 25.0 KiB / 64 MiB, SMEM 0 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kimi_attn_res_decode",
+      "name": "C:prefix-add",
+      "status": "PROVED",
+      "detail": "prefix_out == prefix_a + prefix_b across all token rows and channels",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.kimi_attn_res_decode",
+      "name": "C:bank-mixture",
+      "status": "PROVED",
+      "detail": "normed_out mixes live bank rows [0, 4) + prefix and ignores dead bank rows [4, 8) (Lean kimi_attn_res_exact)",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "in-bounds[q]",
+      "status": "PROVED",
+      "detail": "blocks [8, 1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "in-bounds[k]",
+      "status": "PROVED",
+      "detail": "blocks [8, 16, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "in-bounds[v]",
+      "status": "PROVED",
+      "detail": "blocks [8, 16, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "in-bounds[o]",
+      "status": "PROVED",
+      "detail": "blocks [8, 1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "in-bounds[m]",
+      "status": "PROVED",
+      "detail": "blocks [8, 1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "in-bounds[l]",
+      "status": "PROVED",
+      "detail": "blocks [8, 1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "prefetch-bounds[0]",
+      "status": "PROVED",
+      "detail": "3 reads",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "parallel-race[o]",
+      "status": "PROVED",
+      "detail": "parallel dims [0]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "parallel-race[m]",
+      "status": "PROVED",
+      "detail": "parallel dims [0]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "parallel-race[l]",
+      "status": "PROVED",
+      "detail": "parallel dims [0]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "contiguity[o]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "init-at-start[o]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "no-midrun-reset[o]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "coverage[o]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "contiguity[m]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "init-at-start[m]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "no-midrun-reset[m]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "coverage[m]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "contiguity[l]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "init-at-start[l]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "no-midrun-reset[l]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "coverage[l]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "termination",
+      "status": "PROVED",
+      "detail": "bounded grid [8, 16]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "v7x-mosaic-lower",
+      "status": "PROVED",
+      "detail": "TPU7x TC module @ragged_flash_attention_kernel (tpu.matmul=2, math.exp=3, arith.extf=2, vector.load=12, scf.if=2)",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "v7x-vmem-budget",
+      "status": "PROVED",
+      "detail": "VMEM 288.0 KiB / 64 MiB, SMEM 32 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "C:step[3, 5]",
+      "status": "PROVED",
+      "detail": "l' and acc'*l' match the osState recurrence (rows [0, 7], cols [0, 127])",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "C:step@init[3, 0]",
+      "status": "PROVED",
+      "detail": "l' and acc'*l' match the osState recurrence (rows [0, 7], cols [0, 127])",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "C:score[t=0]",
+      "status": "PROVED",
+      "detail": "cut == scale*QK^T + mask on every grid point reaching it",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "name": "C:skip-sound",
+      "status": "PROVED",
+      "detail": "skipped tiles contain no kept (row, col)",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "in-bounds[q]",
+      "status": "PROVED",
+      "detail": "blocks [8, 1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "in-bounds[k]",
+      "status": "PROVED",
+      "detail": "blocks [8, 16, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "in-bounds[v]",
+      "status": "PROVED",
+      "detail": "blocks [8, 16, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "in-bounds[o]",
+      "status": "PROVED",
+      "detail": "blocks [8, 1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "in-bounds[m]",
+      "status": "PROVED",
+      "detail": "blocks [8, 1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "in-bounds[l]",
+      "status": "PROVED",
+      "detail": "blocks [8, 1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "prefetch-bounds[0]",
+      "status": "PROVED",
+      "detail": "3 reads",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "parallel-race[o]",
+      "status": "PROVED",
+      "detail": "parallel dims [0]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "parallel-race[m]",
+      "status": "PROVED",
+      "detail": "parallel dims [0]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "parallel-race[l]",
+      "status": "PROVED",
+      "detail": "parallel dims [0]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "contiguity[o]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "init-at-start[o]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "no-midrun-reset[o]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "coverage[o]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "contiguity[m]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "init-at-start[m]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "no-midrun-reset[m]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "coverage[m]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "contiguity[l]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "init-at-start[l]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "no-midrun-reset[l]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "coverage[l]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "termination",
+      "status": "PROVED",
+      "detail": "bounded grid [8, 16]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "v7x-mosaic-lower",
+      "status": "PROVED",
+      "detail": "TPU7x TC module @ragged_flash_attention_kernel (tpu.matmul=2, math.exp=3, arith.extf=2, vector.load=12, scf.if=2)",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "name": "v7x-vmem-budget",
+      "status": "PROVED",
+      "detail": "VMEM 288.0 KiB / 64 MiB, SMEM 32 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[no_existing_out]",
+      "name": "in-bounds[lhs]",
+      "status": "PROVED",
+      "detail": "blocks [2, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[no_existing_out]",
+      "name": "in-bounds[rhs]",
+      "status": "PROVED",
+      "detail": "blocks [4, 2, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[no_existing_out]",
+      "name": "in-bounds[out]",
+      "status": "PROVED",
+      "detail": "blocks [2, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[no_existing_out]",
+      "name": "prefetch-bounds[1]",
+      "status": "PROVED",
+      "detail": "2 reads",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[no_existing_out]",
+      "name": "prefetch-bounds[2]",
+      "status": "PROVED",
+      "detail": "2 reads",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[no_existing_out]",
+      "name": "prefetch-bounds[3]",
+      "status": "PROVED",
+      "detail": "1 reads",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[no_existing_out]",
+      "name": "parallel-race[out]",
+      "status": "PROVED",
+      "detail": "parallel dims [0]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[no_existing_out]",
+      "name": "contiguity[out]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[no_existing_out]",
+      "name": "init-at-start[out]",
+      "status": "FAILED",
+      "detail": "accumulator read without init at run start",
+      "cex": {
+        "grid": [
+          0,
+          0,
+          0
+        ],
+        "pred": [
+          0,
+          0,
+          0
+        ],
+        "prefetch1": {
+          "0": 1
+        },
+        "prefetch2": {
+          "0": 0
+        },
+        "prefetch3": {
+          "0": 0
+        }
+      }
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[no_existing_out]",
+      "name": "no-midrun-reset[out]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[no_existing_out]",
+      "name": "coverage[out]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[no_existing_out]",
+      "name": "init-at-start[scratch0]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[no_existing_out]",
+      "name": "no-midrun-reset[scratch0]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[no_existing_out]",
+      "name": "termination",
+      "status": "PROVED",
+      "detail": "bounded grid [2, dynamic, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[no_existing_out]",
+      "name": "v7x-mosaic-lower",
+      "status": "PROVED",
+      "detail": "TPU7x TC module @kernel (tpu.matmul=2, vector.load=12, scf.if=2)",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[no_existing_out]",
+      "name": "v7x-vmem-budget",
+      "status": "PROVED",
+      "detail": "VMEM 320.0 KiB / 64 MiB, SMEM 64 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[with_existing_out]",
+      "name": "in-bounds[lhs]",
+      "status": "PROVED",
+      "detail": "blocks [2, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[with_existing_out]",
+      "name": "in-bounds[rhs]",
+      "status": "PROVED",
+      "detail": "blocks [4, 2, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[with_existing_out]",
+      "name": "in-bounds[existing_out]",
+      "status": "PROVED",
+      "detail": "blocks [2, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[with_existing_out]",
+      "name": "in-bounds[out]",
+      "status": "PROVED",
+      "detail": "blocks [2, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[with_existing_out]",
+      "name": "prefetch-bounds[1]",
+      "status": "PROVED",
+      "detail": "2 reads",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[with_existing_out]",
+      "name": "prefetch-bounds[2]",
+      "status": "PROVED",
+      "detail": "5 reads",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[with_existing_out]",
+      "name": "prefetch-bounds[3]",
+      "status": "PROVED",
+      "detail": "1 reads",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[with_existing_out]",
+      "name": "parallel-race[out]",
+      "status": "PROVED",
+      "detail": "parallel dims [0]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[with_existing_out]",
+      "name": "contiguity[out]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[with_existing_out]",
+      "name": "init-at-start[out]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[with_existing_out]",
+      "name": "no-midrun-reset[out]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[with_existing_out]",
+      "name": "coverage[out]",
+      "status": "N/A",
+      "detail": "aliased to an input: unvisited blocks keep their value",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[with_existing_out]",
+      "name": "init-at-start[scratch0]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[with_existing_out]",
+      "name": "no-midrun-reset[scratch0]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[with_existing_out]",
+      "name": "termination",
+      "status": "PROVED",
+      "detail": "bounded grid [2, dynamic, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[with_existing_out]",
+      "name": "v7x-mosaic-lower",
+      "status": "PROVED",
+      "detail": "TPU7x TC module @kernel (tpu.matmul=2, vector.load=14, scf.if=3)",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[with_existing_out]",
+      "name": "v7x-vmem-budget",
+      "status": "PROVED",
+      "detail": "VMEM 448.0 KiB / 64 MiB, SMEM 64 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[with_existing_out]",
+      "name": "C:gmm-step@init[0, 0, 0]",
+      "status": "PROVED",
+      "detail": "k_i=0 zeroes acc_scratch, adds LHS@RHS, and seeds out from existing_out",
+      "cex": null
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[with_existing_out]",
+      "name": "C:gmm-step@final[0, 1, 1]",
+      "status": "PROVED",
+      "detail": "k_i=K-1 updates rows in [group_start, group_end) with acc + LHS@RHS and preserves prior group rows (Lean GroupedMM)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[vision,single-step]",
+      "name": "in-bounds[q]",
+      "status": "PROVED",
+      "detail": "blocks [1, 2, 8, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[vision,single-step]",
+      "name": "in-bounds[k]",
+      "status": "PROVED",
+      "detail": "blocks [1, 2, 1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[vision,single-step]",
+      "name": "in-bounds[v]",
+      "status": "PROVED",
+      "detail": "blocks [1, 2, 1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[vision,single-step]",
+      "name": "in-bounds[o]",
+      "status": "PROVED",
+      "detail": "blocks [1, 2, 8, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[vision,single-step]",
+      "name": "parallel-race[o]",
+      "status": "PROVED",
+      "detail": "parallel dims [0, 1, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[vision,single-step]",
+      "name": "contiguity[o]",
+      "status": "N/A",
+      "detail": "unconditional full overwrite: scatter semantics (Lean Pipeline.overwrite_is_scatter)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[vision,single-step]",
+      "name": "coverage[o]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[vision,single-step]",
+      "name": "termination",
+      "status": "PROVED",
+      "detail": "bounded grid [1, 2, 8, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[vision,single-step]",
+      "name": "v7x-mosaic-lower",
+      "status": "PROVED",
+      "detail": "TPU7x TC module @_flash_attention_kernel (tpu.matmul=2, math.exp=1, arith.truncf=2, vector.load=4)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[vision,single-step]",
+      "name": "v7x-vmem-budget",
+      "status": "PROVED",
+      "detail": "VMEM 1152.0 KiB / 64 MiB, SMEM 0 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "in-bounds[q]",
+      "status": "PROVED",
+      "detail": "blocks [1, 2, 4, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "in-bounds[k]",
+      "status": "PROVED",
+      "detail": "blocks [1, 2, 4, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "in-bounds[v]",
+      "status": "PROVED",
+      "detail": "blocks [1, 2, 4, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "in-bounds[o]",
+      "status": "PROVED",
+      "detail": "blocks [1, 2, 4, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "parallel-race[o]",
+      "status": "PROVED",
+      "detail": "parallel dims [0, 1, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "contiguity[o]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "write-at-end[o]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "coverage[o]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "init-at-start[scratch0]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "no-midrun-reset[scratch0]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "init-at-start[scratch1]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "no-midrun-reset[scratch1]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "init-at-start[scratch2]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "no-midrun-reset[scratch2]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "termination",
+      "status": "PROVED",
+      "detail": "bounded grid [1, 2, 4, 4], scan_lengths=[1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "v7x-mosaic-lower",
+      "status": "PROVED",
+      "detail": "TPU7x TC module @_flash_attention_kernel (tpu.matmul=2, math.exp=2, arith.truncf=2, vector.load=16, scf.if=3)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "v7x-vmem-budget",
+      "status": "PROVED",
+      "detail": "VMEM 448.0 KiB / 64 MiB, SMEM 0 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "C:step[0, 1, 3, 1]",
+      "status": "PROVED",
+      "detail": "l' and acc'*l' match the osState recurrence (rows [0, 127], cols [0, 127])",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "C:step[0, 1, 3, 3]",
+      "status": "PROVED",
+      "detail": "l' and acc'*l' match the osState recurrence (rows [0, 127], cols [0, 127])",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "C:step@init[0, 1, 3, 0]",
+      "status": "PROVED",
+      "detail": "l' and acc'*l' match the osState recurrence (rows [0, 127], cols [0, 127])",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "C:score[t=0]",
+      "status": "PROVED",
+      "detail": "cut == scale*QK^T + mask on every grid point reaching it",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "name": "C:skip-sound",
+      "status": "PROVED",
+      "detail": "skipped tiles contain no kept (row, col)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,ab,q_len=200]",
+      "name": "in-bounds[q]",
+      "status": "PROVED",
+      "detail": "blocks [1, 2, 2, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,ab,q_len=200]",
+      "name": "in-bounds[k]",
+      "status": "PROVED",
+      "detail": "blocks [1, 2, 4, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,ab,q_len=200]",
+      "name": "in-bounds[v]",
+      "status": "PROVED",
+      "detail": "blocks [1, 2, 4, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,ab,q_len=200]",
+      "name": "in-bounds[ab]",
+      "status": "FAILED",
+      "detail": "block index out of range",
+      "cex": {
+        "grid": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "block_index": [
+          0,
+          0,
+          2,
+          0
+        ],
+        "num_blocks": [
+          1,
+          2,
+          2,
+          4
+        ]
+      }
+    },
+    {
+      "kernel": "sglang.flash[causal,ab,q_len=200]",
+      "name": "in-bounds[o]",
+      "status": "PROVED",
+      "detail": "blocks [1, 2, 2, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,ab,q_len=200]",
+      "name": "parallel-race[o]",
+      "status": "PROVED",
+      "detail": "parallel dims [0, 1, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,ab,q_len=200]",
+      "name": "contiguity[o]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,ab,q_len=200]",
+      "name": "write-at-end[o]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,ab,q_len=200]",
+      "name": "coverage[o]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,ab,q_len=200]",
+      "name": "init-at-start[scratch0]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,ab,q_len=200]",
+      "name": "no-midrun-reset[scratch0]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,ab,q_len=200]",
+      "name": "init-at-start[scratch1]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,ab,q_len=200]",
+      "name": "no-midrun-reset[scratch1]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,ab,q_len=200]",
+      "name": "init-at-start[scratch2]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,ab,q_len=200]",
+      "name": "no-midrun-reset[scratch2]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,ab,q_len=200]",
+      "name": "termination",
+      "status": "PROVED",
+      "detail": "bounded grid [1, 2, 2, 4], scan_lengths=[1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,ab,q_len=200]",
+      "name": "v7x-mosaic-lower",
+      "status": "PROVED",
+      "detail": "TPU7x TC module @_flash_attention_kernel (tpu.matmul=2, math.exp=2, arith.truncf=2, vector.load=17, scf.if=3)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,ab,q_len=200]",
+      "name": "v7x-vmem-budget",
+      "status": "PROVED",
+      "detail": "VMEM 576.0 KiB / 64 MiB, SMEM 0 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,block_q=129]",
+      "name": "in-bounds[q]",
+      "status": "PROVED",
+      "detail": "blocks [1, 2, 1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,block_q=129]",
+      "name": "in-bounds[k]",
+      "status": "PROVED",
+      "detail": "blocks [1, 2, 2, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,block_q=129]",
+      "name": "in-bounds[v]",
+      "status": "PROVED",
+      "detail": "blocks [1, 2, 2, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,block_q=129]",
+      "name": "in-bounds[o]",
+      "status": "PROVED",
+      "detail": "blocks [1, 2, 1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,block_q=129]",
+      "name": "parallel-race[o]",
+      "status": "PROVED",
+      "detail": "parallel dims [0, 1, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,block_q=129]",
+      "name": "contiguity[o]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,block_q=129]",
+      "name": "write-at-end[o]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,block_q=129]",
+      "name": "coverage[o]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,block_q=129]",
+      "name": "init-at-start[scratch0]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,block_q=129]",
+      "name": "no-midrun-reset[scratch0]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,block_q=129]",
+      "name": "init-at-start[scratch1]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,block_q=129]",
+      "name": "no-midrun-reset[scratch1]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,block_q=129]",
+      "name": "init-at-start[scratch2]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,block_q=129]",
+      "name": "no-midrun-reset[scratch2]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,block_q=129]",
+      "name": "termination",
+      "status": "PROVED",
+      "detail": "bounded grid [1, 2, 1, 2], scan_lengths=[1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,block_q=129]",
+      "name": "v7x-mosaic-lower",
+      "status": "PROVED",
+      "detail": "TPU7x TC module @_flash_attention_kernel (tpu.matmul=2, math.exp=2, arith.truncf=2, vector.load=16, scf.if=3)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,block_q=129]",
+      "name": "v7x-vmem-budget",
+      "status": "PROVED",
+      "detail": "VMEM 450.5 KiB / 64 MiB, SMEM 0 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,block_q=129]",
+      "name": "C:score[t=0]",
+      "status": "PROVED",
+      "detail": "cut == scale*QK^T + mask on every grid point reaching it",
+      "cex": null
+    },
+    {
+      "kernel": "sglang.flash[causal,block_q=129]",
+      "name": "C:skip-sound",
+      "status": "FAILED",
+      "detail": "a skipped tile contains a kept entry",
+      "cex": {
+        "grid": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "row": 128,
+        "col": 128
+      }
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b2,existing_out]",
+      "name": "in-bounds[lhs]",
+      "status": "PROVED",
+      "detail": "blocks [2, 4]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b2,existing_out]",
+      "name": "in-bounds[rhs]",
+      "status": "PROVED",
+      "detail": "blocks [4, 4, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b2,existing_out]",
+      "name": "in-bounds[rhs_scale]",
+      "status": "FAILED",
+      "detail": "block index out of range",
+      "cex": {
+        "grid": [
+          0,
+          0,
+          1
+        ],
+        "prefetch1": {
+          "0": 2
+        },
+        "prefetch2": {
+          "0": 0
+        },
+        "prefetch3": {
+          "0": 0
+        },
+        "block_index": [
+          2,
+          -1,
+          0,
+          0
+        ],
+        "num_blocks": [
+          4,
+          2,
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b2,existing_out]",
+      "name": "in-bounds[existing_out]",
+      "status": "PROVED",
+      "detail": "blocks [2, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b2,existing_out]",
+      "name": "in-bounds[out]",
+      "status": "PROVED",
+      "detail": "blocks [2, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b2,existing_out]",
+      "name": "prefetch-bounds[1]",
+      "status": "PROVED",
+      "detail": "3 reads",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b2,existing_out]",
+      "name": "prefetch-bounds[2]",
+      "status": "PROVED",
+      "detail": "5 reads",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b2,existing_out]",
+      "name": "prefetch-bounds[3]",
+      "status": "PROVED",
+      "detail": "2 reads",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b2,existing_out]",
+      "name": "parallel-race[out]",
+      "status": "PROVED",
+      "detail": "parallel dims [0]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b2,existing_out]",
+      "name": "contiguity[out]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b2,existing_out]",
+      "name": "init-at-start[out]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b2,existing_out]",
+      "name": "no-midrun-reset[out]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b2,existing_out]",
+      "name": "coverage[out]",
+      "status": "N/A",
+      "detail": "aliased to an input: unvisited blocks keep their value",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b2,existing_out]",
+      "name": "init-at-start[scratch0]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b2,existing_out]",
+      "name": "no-midrun-reset[scratch0]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b2,existing_out]",
+      "name": "termination",
+      "status": "PROVED",
+      "detail": "bounded grid [2, dynamic, 4]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b2,existing_out]",
+      "name": "v7x-mosaic-lower",
+      "status": "PROVED",
+      "detail": "TPU7x TC module @gmm-g_4-m_256-k_512-n_256-tm_128-tk_128-tn_128 (tpu.matmul=2, vector.load=14, scf.if=3)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b2,existing_out]",
+      "name": "v7x-vmem-budget",
+      "status": "PROVED",
+      "detail": "VMEM 449.0 KiB / 64 MiB, SMEM 64 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b1,existing_out]",
+      "name": "in-bounds[lhs]",
+      "status": "PROVED",
+      "detail": "blocks [2, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b1,existing_out]",
+      "name": "in-bounds[rhs]",
+      "status": "PROVED",
+      "detail": "blocks [4, 2, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b1,existing_out]",
+      "name": "in-bounds[rhs_scale]",
+      "status": "FAILED",
+      "detail": "block index out of range",
+      "cex": {
+        "grid": [
+          0,
+          0,
+          1
+        ],
+        "prefetch1": {
+          "0": 0
+        },
+        "prefetch2": {
+          "0": 0
+        },
+        "prefetch3": {
+          "0": 0
+        },
+        "block_index": [
+          0,
+          -1,
+          0,
+          0
+        ],
+        "num_blocks": [
+          4,
+          1,
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b1,existing_out]",
+      "name": "in-bounds[existing_out]",
+      "status": "PROVED",
+      "detail": "blocks [2, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b1,existing_out]",
+      "name": "in-bounds[out]",
+      "status": "PROVED",
+      "detail": "blocks [2, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b1,existing_out]",
+      "name": "prefetch-bounds[1]",
+      "status": "PROVED",
+      "detail": "3 reads",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b1,existing_out]",
+      "name": "prefetch-bounds[2]",
+      "status": "PROVED",
+      "detail": "5 reads",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b1,existing_out]",
+      "name": "prefetch-bounds[3]",
+      "status": "PROVED",
+      "detail": "2 reads",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b1,existing_out]",
+      "name": "parallel-race[out]",
+      "status": "PROVED",
+      "detail": "parallel dims [0]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b1,existing_out]",
+      "name": "contiguity[out]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b1,existing_out]",
+      "name": "init-at-start[out]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b1,existing_out]",
+      "name": "no-midrun-reset[out]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b1,existing_out]",
+      "name": "coverage[out]",
+      "status": "N/A",
+      "detail": "aliased to an input: unvisited blocks keep their value",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b1,existing_out]",
+      "name": "init-at-start[scratch0]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b1,existing_out]",
+      "name": "no-midrun-reset[scratch0]",
+      "status": "PROVED",
+      "detail": "",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b1,existing_out]",
+      "name": "termination",
+      "status": "PROVED",
+      "detail": "bounded grid [2, dynamic, 2]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b1,existing_out]",
+      "name": "v7x-mosaic-lower",
+      "status": "PROVED",
+      "detail": "TPU7x TC module @gmm-g_4-m_256-k_256-n_256-tm_128-tk_128-tn_128 (tpu.matmul=2, vector.load=14, scf.if=3)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b1,existing_out]",
+      "name": "v7x-vmem-budget",
+      "status": "PROVED",
+      "detail": "VMEM 449.0 KiB / 64 MiB, SMEM 64 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.update_kv_cache",
+      "name": "in-bounds[new_kv]",
+      "status": "PROVED",
+      "detail": "blocks [1, 1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.update_kv_cache",
+      "name": "in-bounds[kv_cache]",
+      "status": "PROVED",
+      "detail": "blocks [1, 1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.update_kv_cache",
+      "name": "in-bounds[kv_out]",
+      "status": "PROVED",
+      "detail": "blocks [1, 1, 1]",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.update_kv_cache",
+      "name": "parallel-race[kv_out]",
+      "status": "N/A",
+      "detail": "no parallel dims",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.update_kv_cache",
+      "name": "contiguity[kv_out]",
+      "status": "N/A",
+      "detail": "explicit HBM ref (memory_space=any): no VMEM output pipeline",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.update_kv_cache",
+      "name": "write-at-end[kv_out]",
+      "status": "PROVED",
+      "detail": "explicit HBM DMA write (memory_space=any)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.update_kv_cache",
+      "name": "coverage[kv_out]",
+      "status": "N/A",
+      "detail": "aliased to an input: unvisited blocks keep their value",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.update_kv_cache",
+      "name": "init-at-start[scratch0]",
+      "status": "PROVED",
+      "detail": "per-step staging buffer: written before read on every grid step",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.update_kv_cache",
+      "name": "no-midrun-reset[scratch0]",
+      "status": "N/A",
+      "detail": "per-step staging buffer (not a cross-step accumulator)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.update_kv_cache",
+      "name": "termination",
+      "status": "PROVED",
+      "detail": "bounded grid [dynamic], dma_pairs=16",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.update_kv_cache",
+      "name": "v7x-mosaic-lower",
+      "status": "PROVED",
+      "detail": "TPU7x TC module @kv_cache_update_kernel (tpu.enqueue_dma=16, tpu.wait_dma=16)",
+      "cex": null
+    },
+    {
+      "kernel": "sglang_jax.update_kv_cache",
+      "name": "v7x-vmem-budget",
+      "status": "PROVED",
+      "detail": "VMEM 256.0 KiB / 64 MiB, SMEM 96 B / 1024 KiB (Lean PallasLean.fitsV7xMemory)",
+      "cex": null
+    }
+  ],
+  "level_d": [
+    {
+      "kernel": "sglang.flash[vision,single-step]",
+      "requires": "|q|,|k|,|v|<=1, kv=1024, d=128, scale=1/8",
+      "f32_to_bf16_casts": [
+        [
+          128,
+          1024
+        ],
+        [
+          128,
+          128
+        ]
+      ],
+      "eps_abs": 0.008483073589792996,
+      "spec_tol": 0.01,
+      "terms": {
+        "score_abs": 0.00012207077452446513,
+        "rho_p": 0.0002538692854557057,
+        "rho_l": 0.0003148621745815484,
+        "rho_w": 0.004477442766966053,
+        "o_before_cast": 0.004559014937692634
+      }
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "requires": "|q|,|k|,|v|<=1, kv=512 (4x128), d=128, scale=1/8",
+      "f32_to_bf16_casts": [
+        [
+          128,
+          128
+        ],
+        [
+          128,
+          128
+        ]
+      ],
+      "eps_abs": 0.004511516655211902,
+      "spec_tol": 0.01,
+      "terms": {
+        "score_abs": 0.00012207077452446513,
+        "rho_p": 0.0002538692854557057,
+        "rho_ab": 9.6653054764414e-06,
+        "rho_wt": 0.00029355445878295375
+      }
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "requires": "|q|<=1/8,|k|,|v|<=1, T=4096 (16x256), d=128",
+      "f32_to_bf16_casts": [],
+      "eps_abs": 0.0008589994673385352,
+      "spec_tol": 0.001,
+      "terms": {
+        "score_abs": 0.00012207077452446513,
+        "rho_p": 0.0002538692854557057,
+        "rho_ab": 9.6653054764414e-06,
+        "rho_wt": 0.00041315608937138293
+      }
+    },
+    {
+      "kernel": "sglang.qk_norm_rope",
+      "requires": "|qkv|<=1, |w|<=1, rms>=1, hd=128",
+      "f32_to_bf16_casts": [
+        [
+          256,
+          512
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "eps_abs": 0.007828536505085963,
+      "spec_tol": 0.02,
+      "terms": {
+        "e_norm": 7.867843827193368e-06,
+        "e_rope": 1.5974106233488298e-05
+      }
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[with_existing_out]",
+      "requires": "|lhs|<=1, |rhs|<=1/16, K=256 (2x128), acc=f32",
+      "f32_to_bf16_casts": [],
+      "eps_abs": 0.00012207077452446513,
+      "spec_tol": 0.0002,
+      "terms": {
+        "tile_err": 6.055854649445879e-05,
+        "acc_err": 0.00012207077452446513
+      }
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b1,existing_out]",
+      "requires": "|lhs|<=1, |rhs|<=1/16, K=256 (2x128), quant_blocks=1, acc=f32",
+      "f32_to_bf16_casts": [],
+      "eps_abs": 0.00012207077452446513,
+      "spec_tol": 0.0002,
+      "terms": {
+        "tile_err": 6.055854649445879e-05,
+        "acc_err": 0.00012207077452446513
+      }
+    }
+  ],
+  "mosaic_v7x": [
+    {
+      "kernel": "sglang.kv_page_write",
+      "mosaic_name": "_kernel",
+      "vmem_bytes": 196608,
+      "smem_bytes": 64,
+      "op_counts": {
+        "vector.load": 2
+      }
+    },
+    {
+      "kernel": "sglang.qk_norm_rope",
+      "mosaic_name": "fused_qk_norm_rope",
+      "vmem_bytes": 1704448,
+      "smem_bytes": 0,
+      "op_counts": {
+        "math.rsqrt": 2,
+        "arith.extf": 5,
+        "arith.truncf": 2,
+        "vector.load": 6
+      }
+    },
+    {
+      "kernel": "sglang.kimi_attn_res_decode",
+      "mosaic_name": "kimi_attn_res_decode_nvb4",
+      "vmem_bytes": 25600,
+      "smem_bytes": 0,
+      "op_counts": {
+        "math.exp": 5,
+        "math.rsqrt": 6,
+        "arith.extf": 8,
+        "arith.truncf": 3,
+        "vector.load": 10
+      }
+    },
+    {
+      "kernel": "maxtext.ragged_mqa",
+      "mosaic_name": "ragged_flash_attention_kernel",
+      "vmem_bytes": 294912,
+      "smem_bytes": 32,
+      "op_counts": {
+        "tpu.matmul": 2,
+        "math.exp": 3,
+        "arith.extf": 2,
+        "vector.load": 12,
+        "scf.if": 2
+      }
+    },
+    {
+      "kernel": "maxtext.ragged_mqa[requires_len>=256]",
+      "mosaic_name": "ragged_flash_attention_kernel",
+      "vmem_bytes": 294912,
+      "smem_bytes": 32,
+      "op_counts": {
+        "tpu.matmul": 2,
+        "math.exp": 3,
+        "arith.extf": 2,
+        "vector.load": 12,
+        "scf.if": 2
+      }
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[no_existing_out]",
+      "mosaic_name": "kernel",
+      "vmem_bytes": 327680,
+      "smem_bytes": 64,
+      "op_counts": {
+        "tpu.matmul": 2,
+        "vector.load": 12,
+        "scf.if": 2
+      }
+    },
+    {
+      "kernel": "maxtext.megablox_gmm[with_existing_out]",
+      "mosaic_name": "kernel",
+      "vmem_bytes": 458752,
+      "smem_bytes": 64,
+      "op_counts": {
+        "tpu.matmul": 2,
+        "vector.load": 14,
+        "scf.if": 3
+      }
+    },
+    {
+      "kernel": "sglang.flash[vision,single-step]",
+      "mosaic_name": "_flash_attention_kernel",
+      "vmem_bytes": 1179648,
+      "smem_bytes": 0,
+      "op_counts": {
+        "tpu.matmul": 2,
+        "math.exp": 1,
+        "arith.truncf": 2,
+        "vector.load": 4
+      }
+    },
+    {
+      "kernel": "sglang.flash[causal,multi-block]",
+      "mosaic_name": "_flash_attention_kernel",
+      "vmem_bytes": 458752,
+      "smem_bytes": 0,
+      "op_counts": {
+        "tpu.matmul": 2,
+        "math.exp": 2,
+        "arith.truncf": 2,
+        "vector.load": 16,
+        "scf.if": 3
+      }
+    },
+    {
+      "kernel": "sglang.flash[causal,ab,q_len=200]",
+      "mosaic_name": "_flash_attention_kernel",
+      "vmem_bytes": 589824,
+      "smem_bytes": 0,
+      "op_counts": {
+        "tpu.matmul": 2,
+        "math.exp": 2,
+        "arith.truncf": 2,
+        "vector.load": 17,
+        "scf.if": 3
+      }
+    },
+    {
+      "kernel": "sglang.flash[causal,block_q=129]",
+      "mosaic_name": "_flash_attention_kernel",
+      "vmem_bytes": 461312,
+      "smem_bytes": 0,
+      "op_counts": {
+        "tpu.matmul": 2,
+        "math.exp": 2,
+        "arith.truncf": 2,
+        "vector.load": 16,
+        "scf.if": 3
+      }
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b2,existing_out]",
+      "mosaic_name": "gmm-g_4-m_256-k_512-n_256-tm_128-tk_128-tn_128",
+      "vmem_bytes": 459776,
+      "smem_bytes": 64,
+      "op_counts": {
+        "tpu.matmul": 2,
+        "vector.load": 14,
+        "scf.if": 3
+      }
+    },
+    {
+      "kernel": "sglang_jax.megablox_gmm[quant_b1,existing_out]",
+      "mosaic_name": "gmm-g_4-m_256-k_256-n_256-tm_128-tk_128-tn_128",
+      "vmem_bytes": 459776,
+      "smem_bytes": 64,
+      "op_counts": {
+        "tpu.matmul": 2,
+        "vector.load": 14,
+        "scf.if": 3
+      }
+    },
+    {
+      "kernel": "sglang_jax.update_kv_cache",
+      "mosaic_name": "kv_cache_update_kernel",
+      "vmem_bytes": 262144,
+      "smem_bytes": 96,
+      "op_counts": {
+        "tpu.enqueue_dma": 16,
+        "tpu.wait_dma": 16
+      }
+    }
+  ],
+  "exp_model": {
+    "ue": 7.757923970106494e-06,
+    "etae": 1.1754943508222875e-38,
+    "source": "TPU-measured"
+  }
+}

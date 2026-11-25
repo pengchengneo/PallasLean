@@ -1,0 +1,8 @@
+/.lake
+/.venv
+**/.docker_tpu_venv/
+validate/bundle.tgz
+validate/bundle/
+__pycache__/
+*.py[cod]
+.DS_Store
