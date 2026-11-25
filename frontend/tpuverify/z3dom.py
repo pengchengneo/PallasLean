@@ -34,12 +34,14 @@ class Z3Dom:
 
     def fresh(self, name, sort=None):
         self._fresh += 1
-        return z3.Const(f"{name}_{self._fresh}", sort or z3.RealSort())
+        return z3.Const(f"{name}_{self._fresh}", z3.RealSort() if sort is None else sort)
 
     def fn(self, name, arity, ret=None):
         key = (name, arity)
         if key not in self._fns:
-            self._fns[key] = z3.Function(name, *([z3.IntSort()] * arity), ret or z3.RealSort())
+            self._fns[key] = z3.Function(
+                name, *([z3.IntSort()] * arity), z3.RealSort() if ret is None else ret
+            )
         return self._fns[key]
 
     # literals and indices
@@ -105,6 +107,9 @@ class Z3Dom:
         if name == "sub": return a[0] - a[1]
         if name == "mul": return a[0] * a[1]
         if name == "neg": return -a[0]
+        if name == "sign":
+            z0 = self.lit(0, kind)
+            return z3.If(a[0] > z0, self.lit(1, kind), z3.If(a[0] < z0, self.lit(-1, kind), z0))
         if name == "div": return tdiv(a[0], a[1]) if kind == "int" else a[0] / a[1]
         if name == "rem": return trem(a[0], a[1])
         if name == "max": return z3.If(a[0] >= a[1], a[0], a[1])

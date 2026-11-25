@@ -257,8 +257,15 @@ class Ctx:
 
 def _nblocks(b):
     out = []
-    for (kind, bs), n in zip(b.dims, b.array_shape):
-        out.append(n if kind == "squeezed" else -(-n // bs))
+    for dim, n in zip(b.dims, b.array_shape):
+        kind, bs = dim[0], dim[1]
+        if kind == "squeezed":
+            out.append(n)
+        elif kind == "element":
+            pad_hi = dim[2] if len(dim) > 2 else 0
+            out.append(max(1, n + pad_hi - bs + 1))
+        else:
+            out.append(-(-n // bs))
     return out
 
 

@@ -265,6 +265,8 @@ class Interp:
             x = ins[0]
             y = p["y"]
             return [Arr(x.shape, lambda idx, x=x: dom.op("integer_pow", [x.at(idx), y], _kind(x.dtype), eqn), x.dtype)]
+        if name == "multiple_of":
+            return [ins[0]]
         raise NotImplementedError(f"primitive {name}")
 
     # ---- refs ----

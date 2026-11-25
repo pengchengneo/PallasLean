@@ -69,6 +69,9 @@ def _dims(block_shape) -> tuple:
             out.append(("squeezed", 1))
         elif isinstance(d, plcore.Blocked):
             out.append(("blocked", int(d.block_size)))
+        elif isinstance(d, plcore.Element):
+            pad_hi = int(d.padding[1]) if getattr(d, "padding", None) else 0
+            out.append(("element", int(d.block_size), pad_hi))
         else:
             raise NotImplementedError(f"block dim kind {type(d).__name__}")
     return tuple(out)
